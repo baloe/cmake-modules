@@ -171,6 +171,8 @@ show :
   petsc_get_variable (PETSC_INCLUDE            petsc_include)
   petsc_get_variable (PCC                      petsc_cc)
   petsc_get_variable (PCC_FLAGS                petsc_cc_flags)
+  petsc_get_variable (FC                       petsc_fc)
+  petsc_get_variable (FC_FLAGS                 petsc_fc_flags)
   petsc_get_variable (MPIEXEC                  petsc_mpiexec)
   # We are done with the temporary Makefile, calling PETSC_GET_VARIABLE after this point is invalid!
   file (REMOVE ${petsc_config_makefile})
@@ -333,6 +335,8 @@ int main(int argc,char *argv[]) {
   set (PETSC_INCLUDES ${petsc_includes_needed} CACHE STRING "PETSc include path" FORCE)
   set (PETSC_LIBRARIES ${PETSC_LIBRARIES_ALL} CACHE STRING "PETSc libraries" FORCE)
   set (PETSC_COMPILER ${petsc_cc} CACHE FILEPATH "PETSc compiler" FORCE)
+  set (PETSC_FCOMPILER ${petsc_fc} CACHE FILEPATH "PETSc Fortran compiler" FORCE)
+
   # Note that we have forced values for all these choices.  If you
   # change these, you are telling the system to trust you that they
   # work.  It is likely that you will end up with a broken build.
